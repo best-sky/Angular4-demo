@@ -6,25 +6,16 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./stars.component.less']
 })
 export class StarsComponent implements OnInit {
+  protected starts: boolean[];
   @Input()
-  public rating: number;
-  public stars = [];
-
-  constructor() {
-  }
+  protected rating = 0;
+  constructor() { }
 
   ngOnInit() {
-    const full: number = Math.floor(this.rating);
-    const half: number = Math.ceil(this.rating - full);
-    const empty: number = 5 - full - half;
-    for (let i = 0; i < 5; i++) {
-      if (i < full) {
-        this.stars.push('full');
-      } else if (i === full && half !== 0) {
-        this.stars.push('half')
-      } else {
-        this.stars.push('empty')
-      }
+    this.starts = [];
+    for (let i = 1; i <= 5; i ++) {
+      this.starts.push(i > this.rating);
     }
   }
+
 }
