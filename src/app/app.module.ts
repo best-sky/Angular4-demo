@@ -9,6 +9,8 @@ import { ProductComponent } from './product/product.component';
 import { StarsComponent } from './stars/stars.component';
 import { FootComponent } from './foot/foot.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { CarouselComponent } from './carousel/carousel.component';
     ProductComponent,
     StarsComponent,
     FootComponent,
-    CarouselComponent
+    CarouselComponent,
+    ProductDetailComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
