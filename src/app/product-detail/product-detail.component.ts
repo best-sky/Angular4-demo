@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Product, ProductService,Comment } from '../shared/product.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -8,11 +9,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailComponent implements OnInit {
   //声明标题
-  productTitle :string;
-  constructor(private routeInfo:ActivatedRoute) { }
+  product: Product;
+  comments: Comment[];
+  constructor(
+    private routeInfo:ActivatedRoute,
+    private productService: ProductService
+    ) { }
 
   ngOnInit() {
-    this.productTitle = this.routeInfo.snapshot.params["prodTitle"]
+    let productId:number = this.routeInfo.snapshot.params["productId"]
+    this.product = this.productService.getProduct(productId);
+    this.comments = this.productService.getCommentsForProductId(productId)
+    // this.productTitle = this.routeInfo.snapshot.params["prodTitle"]
   }
 
 }
