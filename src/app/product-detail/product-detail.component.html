@@ -1,14 +1,14 @@
 <div class="thumbnail">
     <img src="http://placehold.it/820x320" alt="">
     <div>
-        <h4 class="pull-right">{{product.price}}元</h4>
-        <h4>{{product.title}}</h4>
-        <p>{{product.desc}}</p>
+        <h4 class="pull-right">{{product?.price}}元</h4>
+        <h4>{{product?.title}}</h4>
+        <p>{{product?.desc}}</p>
     </div>
     <div>
-        <p class="pull-right">{{comments.length}} 条评论</p>
+        <p class="pull-right">{{comments?.length}} 条评论</p>
         <p>
-            <app-stars [rating]="product.rating"></app-stars>
+            <app-stars [rating]="product?.rating"></app-stars>
         </p>
     </div>
 </div>
@@ -18,7 +18,9 @@
         <button class="btn btn-success" (click)="isCommentHidden = !isCommentHidden">发表评论</button>
     </div>
     <div [hidden]="isCommentHidden">
-        <div><app-stars [(rating)]="newRating" [readonly]="false"></app-stars></div>
+        <div>
+            <app-stars [(rating)]="newRating" [readonly]="false"></app-stars>
+        </div>
         <div>
             <textarea [(ngModel)]="newComment"></textarea>
         </div>
