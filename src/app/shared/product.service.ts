@@ -35,7 +35,7 @@ export class ProductService {
   }
 
   getProduct(id:number): Observable<any>{
-    return this.http.get('/api/products/'+id);
+    return this.http.get('/api/product/'+id);
   }
 
   getCommentsForProductId(id:number):Observable<any>{
